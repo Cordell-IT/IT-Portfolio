@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects – Virtual IT Environment</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #0a0a0a;
+      font-family: -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+      position: relative;
+      perspective: 1000px;
+    }
+
+    /* Dreamy Animated Background */
+    .dreamy-bg {
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: 
+        radial-gradient(circle at 20% 20%, rgba(255, 200, 55, 0.15), transparent 60%),
+        radial-gradient(circle at 70% 80%, rgba(0, 153, 255, 0.1), transparent 60%),
+        radial-gradient(circle at 50% 50%, rgba(255, 0, 200, 0.08), transparent 60%);
+      animation: dreamy 18s ease-in-out infinite;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    @keyframes dreamy {
+      0% {
+        transform: scale(1) translate(0, 0);
+      }
+      50% {
+        transform: scale(1.07) translate(30px, -30px);
+      }
+      100% {
+        transform: scale(1) translate(0, 0);
+      }
+    }
+
+    .iphone {
+      width: 400px;
+      height: 850px;
+      background: #1c1c1e;
+      background-image: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(0,0,0,0.1));
+      border-radius: 60px;
+      box-shadow:
+        inset 0 0 3px rgba(255,255,255,0.08),
+        0 15px 30px rgba(0,0,0,0.8),
+        0 0 10px rgba(0,0,0,0.5);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      z-index: 10;
+      border: 10px solid #2c2c2e;
+      transform: scale(0.9);
+      animation: slideInPhone 1s ease-out forwards;
+    }
+
+    @keyframes slideInPhone {
+      0% {
+        transform: scale(0.9) translateY(50px);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .notch {
+      position: absolute;
+      top: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 210px;
+      height: 30px;
+      background: #000;
+      border-radius: 15px;
+      z-index: 3;
+    }
+
+    .volume-buttons {
+      position: absolute;
+      left: -12px;
+      top: 100px;
+      width: 8px;
+      height: 80px;
+      background: #2c2c2e;
+      border-radius: 4px;
+    }
+
+    .contact-header {
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 40px;
+      border-bottom: 1px solid #ccc;
+      position: relative;
+      margin-top: 45px;
+      z-index: 4;
+    }
+
+    .contact-header .name {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .chat-wrapper {
+      display: flex;
+      flex-direction: column;
+      padding: 15px;
+      overflow-y: scroll;
+      flex-grow: 1;
+      background-color: #f2f2f7;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+    }
+
+    .chat-wrapper::-webkit-scrollbar {
+      display: none;
+    }
+
+    .bubble {
+      max-width: 75%;
+      padding: 10px 14px;
+      border-radius: 18px;
+      font-size: 14px;
+      line-height: 1.4;
+      margin: 6px 0;
+      opacity: 0;
+      animation: fadeIn 0.4s ease forwards;
+    }
+
+    .sent {
+      background-color: #007aff;
+      color: #fff;
+      align-self: flex-end;
+      border-bottom-right-radius: 4px;
+    }
+
+    .received {
+      background-color: #e5e5ea;
+      color: #000;
+      align-self: flex-start;
+      border-bottom-left-radius: 4px;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+    }
+
+    .nav-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: radial-gradient(circle at top left, #333, #111);
+      border: none;
+      font-size: 22px;
+      color: #fff;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow:
+        inset -2px -2px 6px rgba(255, 255, 255, 0.1),
+        inset 2px 2px 6px rgba(0, 0, 0, 0.6),
+        0 3px 6px rgba(0, 0, 0, 0.5);
+      text-decoration: none;
+      transition: all 0.2s ease-in-out;
+      z-index: 5;
+    }
+
+    .nav-icon::before {
+      content: '\2302'; /* Unicode home icon */
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .nav-icon:hover {
+      transform: translateY(-50%) scale(1.1);
+      box-shadow:
+        0 0 10px #007aff,
+        inset -1px -1px 3px #444,
+        inset 1px 1px 3px #000;
+      background: radial-gradient(circle at top left, #4e9cff, #111);
+    }
+
+    .nav-icon:active {
+      transform: translateY(-48%) scale(0.95);
+      box-shadow: inset 1px 1px 4px rgba(0, 0, 0, 0.5);
+    }
+  </style>
+</head>
+<body>
+  <div class="dreamy-bg"></div>
+
+  <div class="iphone">
+    <div class="notch"></div>
+    <div class="volume-buttons"></div>
+    <div class="contact-header">
+      <a class="nav-icon" href="index.html" title="Home"></a>
+      <div class="name">Virtual IT Environment</div>
+    </div>
+    <div class="chat-wrapper" id="messages"></div>
+  </div>
+
+  <script>
+    const messages = [
+      { text: "What kind of projects have you worked on recently?", type: "received" },
+      { text: "I built a virtual IT environment from scratch to understand how real networks work.", type: "sent" },
+      { text: "Like a home lab?", type: "received" },
+      { text: "Exactly. I used VirtualBox and Windows Server to simulate a small business network.", type: "sent" },
+      { text: "What did you set up in it?", type: "received" },
+      { text: "I created a domain, managed users and OUs with Active Directory, and configured DNS so machines could communicate.", type: "sent" },
+      { text: "Nice. Did you do any access control?", type: "received" },
+      { text: "Yeah, I applied Group Policies to restrict logins and control desktop access.", type: "sent" },
+      { text: "Did you test remote support too?", type: "received" },
+      { text: "I did. I used Remote Desktop to manage machines and practiced resetting passwords in the domain.", type: "sent" },
+      { text: "That's solid. Did you go into networking stuff too?", type: "received" },
+      { text: "Definitely. I used Wireshark to monitor and analyze DNS and TCP traffic.", type: "sent" },
+      { text: "What about cloud services?", type: "received" },
+      { text: "I connected the domain to Azure AD using Entra Connect to simulate a hybrid identity setup.", type: "sent" },
+      { text: "That sounds like a full setup.", type: "received" },
+      { text: "Yeah, it helped me understand IT systems, troubleshooting, and user management in a real way.", type: "sent" }
+    ];
+
+    const wrapper = document.getElementById("messages");
+    messages.forEach((msg, index) => {
+      setTimeout(() => {
+        const div = document.createElement("div");
+        div.classList.add("bubble", msg.type);
+        div.style.animationDelay = `${index * 0.4}s`;
+        div.textContent = msg.text;
+        wrapper.appendChild(div);
+      }, index * 400);
+    });
+  </script>
+</body>
+</html>

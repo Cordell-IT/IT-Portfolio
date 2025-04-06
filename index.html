@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falling Letters Animation</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="icon" type="image/png" href="./assets/images/md-favicon.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+</head>
+<body>
+    <!-- iPhone Time Display -->
+    <div class="iphone-time" id="iphone-time"></div>
+
+    <!-- iPhone App Grid -->
+    <div class="app-grid">
+        <div class="app">
+            <a href="index.html">
+                <img src="assets/icons/home icon.png" alt="Home Icon">
+                <p>Home</p>
+            </a>
+        </div>
+        <div class="app">
+            <a href="about.html">
+                <img src="assets/icons/info icon.png" alt="About Icon" class="about-icon">
+                <p>Info</p>
+            </a>
+        </div>
+        <div class="app">
+            <a href="projects.html">
+                <img src="assets/icons/project icon.png" alt="Projects Icon">
+                <p>Projects</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- Falling Letters Container -->
+    <div id="falling-letters"></div>
+
+    <script src="./assets/js/scripts.js"></script>
+</body>
+</html>

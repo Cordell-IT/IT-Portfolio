@@ -1,0 +1,16 @@
+{
+  "name": "it-portfolio-website",
+  "version": "1.0.0",
+  "description": "A portfolio website to showcase IT skills and projects.",
+  "main": "index.js",
+  "scripts": {
+    "start": "live-server src",
+    "build": "echo 'Build process not defined yet.'"
+  },
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}

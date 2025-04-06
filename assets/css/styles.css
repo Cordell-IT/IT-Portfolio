@@ -1,0 +1,851 @@
+/* Allow the page to grow and scroll */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: auto; /* Allow the height to grow with the content */
+    overflow-y: auto; /* Enable vertical scrolling */
+    display: block; /* Ensure normal document flow */
+    background-color: #ffffff; /* Set the background to white */
+}
+
+
+/* General Reset */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, sans-serif;
+    background: #0a0a0a;
+    height: 100%; /* Allow the body to grow with content */
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    overflow-y: auto; /* Enable vertical scrolling */
+    color: #000; /* Black text */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+    perspective: 1000px;
+    font-size: 1rem; /* Base font size scales with the device */
+}
+
+/* Header styles */
+header {
+    background-color: #ffffff;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav {
+    margin: 20px 0;
+}
+
+/* Navigation links */
+nav a {
+    color: #000; /* Black links */
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth hover animation */
+}
+
+/* Hover animation for navigation links */
+nav a:hover, a:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+    color: #fff; /* Change color to white on hover */
+    text-decoration: underline; /* Optional: Add underline on hover */
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.project-card {
+    background: #ffffff;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 15px 0;
+    box-shadow: 0 2px 5px rgb(255, 255, 255);
+}
+
+.project-card h3 {
+    margin-top: 0;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    background: #111; /* Dark background for the footer */
+    color: #fff; /* White text */
+    font-size: 0.8rem;
+    border: none; /* Ensure no border is applied */
+    box-shadow: none; /* Remove any shadow if present */
+}
+
+/* Title styles */
+.animated-title {
+    color: #fff; /* White text */
+    text-align: center;
+    font-size: 3rem; /* Adjust size as needed */
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow for prominence */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover animation */
+    padding: 10px 20px; /* Add padding for the hover effect */
+    display: inline-block; /* Ensure the background highlight fits the text */
+    animation: bounce-title 2s infinite; /* Add continuous bounce animation */
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid black;
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for centering */
+    animation: typing 3s steps(30, end), blink 0.5s step-end infinite alternate;
+}
+
+/* Hover effect for the title */
+.animated-title:hover {
+    background-color: #000; /* Black background on hover */
+    color: #fff; /* White text on hover */
+    border-radius: 10px; /* Optional: Add rounded corners */
+}
+
+/* Spinning Title Animation */
+.animated-title {
+    font-size: 2rem; /* Adjust size as needed */
+    font-weight: bold;
+    color: #000; /* Black text */
+    position: absolute;
+    white-space: nowrap;
+    animation: spin-around 10s linear infinite; /* Circular motion */
+    transform-origin: center; /* Rotate around the center */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow for prominence */
+}
+
+/* Keyframes for Circular Motion */
+@keyframes spin-around {
+    0% {
+        transform: rotate(0deg) translateX(200px) rotate(0deg); /* Start at the top */
+    }
+    25% {
+        transform: rotate(90deg) translateX(200px) rotate(-90deg); /* Move to the right */
+    }
+    50% {
+        transform: rotate(180deg) translateX(200px) rotate(-180deg); /* Move to the bottom */
+    }
+    75% {
+        transform: rotate(270deg) translateX(200px) rotate(-270deg); /* Move to the left */
+    }
+    100% {
+        transform: rotate(360deg) translateX(200px) rotate(-360deg); /* Complete the circle */
+    }
+}
+
+/* General styles for all titles (h1, h2) */
+h1, h2 {
+    font-size: 3rem; /* Adjust size as needed */
+    font-weight: bold;
+    color: #000; /* Black text */
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow for prominence */
+    -webkit-text-stroke: 1px #000; /* Black outline around the letters */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth hover animation */
+}
+
+/* Hover animation for titles */
+h1:hover, h2:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+    color: #fff; /* Change color to white on hover */
+}
+
+/* General styles for links */
+a {
+    color: #000; /* Black links */
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth hover animation */
+}
+
+/* Hover animation for links */
+a:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+    color: #fff; /* Change color to white on hover */
+}
+
+/* Keyframes for the animation */
+@keyframes move-title {
+    0% {
+        transform: translateY(0);
+        opacity: 1; /* Fully visible */
+    }
+    50% {
+        transform: translateY(-10px);
+        opacity: 0.9; /* Slight fade but still readable */
+    }
+    100% {
+        transform: translateY(10px);
+        opacity: 1; /* Fully visible */
+    }
+}
+
+/* Intro text styles */
+.intro-text {
+    text-align: center; /* Center the text */
+    font-size: 1rem; /* Slightly smaller font size */
+    line-height: 1.6; /* Add spacing between lines */
+    color: #333; /* Darker gray for better readability */
+    margin: 20px auto; /* Add spacing around the section */
+    max-width: 800px; /* Limit the width for better readability */
+}
+
+/* Paragraph styles inside intro-text */
+.intro-text p {
+    margin: 10px 0; /* Add spacing between paragraphs */
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* General paragraph styles */
+main p {
+    text-align: center; /* Center the text */
+    font-size: 1.2rem; /* Slightly larger font size */
+    line-height: 1.6; /* Add spacing between lines */
+    color: #000; /* Black text */
+    margin: 20px auto; /* Add spacing around the text */
+    max-width: 800px; /* Limit the width for better readability */
+}
+
+/* Center the button container */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70vh; /* Center vertically within the viewport */
+    gap: 30px; /* Space between buttons */
+}
+
+/* Style the buttons */
+.button {
+    display: inline-block;
+    padding: 20px 40px; /* Bigger button size */
+    font-size: 1.8rem; /* Larger text */
+    font-weight: bold;
+    color: #000; /* Black text */
+    background-color: #fff; /* White background */
+    border: 2px solid #000; /* Black border for definition */
+    border-radius: 50px; /* Rounded, bubbly shape */
+    text-decoration: none; /* Remove underline */
+    text-align: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease; /* Smooth hover animation */
+}
+
+/* Hover effect for buttons */
+.button:hover {
+    transform: scale(1.2); /* Slightly enlarge on hover */
+    background-color: #000; /* Black background on hover */
+    color: #fff; /* White text on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+}
+
+/* Add bounce animation to buttons */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.button {
+    animation: bounce 2s infinite; /* Buttons bounce up and down */
+}
+
+/* Keyframes for the bounce animation */
+@keyframes bounce-title {
+    0%, 100% {
+        transform: translateY(0); /* Start and end at the original position */
+    }
+    50% {
+        transform: translateY(-10px); /* Move up slightly */
+    }
+}
+
+/* Matrix effect container */
+.matrix {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black; /* Background for the matrix effect */
+    overflow: hidden;
+    z-index: -1; /* Ensure it stays behind all other content */
+}
+
+/* Individual matrix columns */
+.matrix span {
+    position: absolute;
+    top: 0;
+    color: #fff; /* White matrix color */
+    font-family: monospace;
+    font-size: 1.2rem;
+    animation: matrix-fall 3s linear infinite;
+    white-space: nowrap;
+}
+
+/* Keyframes for the falling effect */
+@keyframes matrix-fall {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+
+/* Status Bar */
+.status-bar {
+    width: 100%;
+    height: 40px;
+    background: #111; /* Darker background for status bar */
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    font-size: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    z-index: 10;
+}
+
+/* Centered Title in Status Bar */
+.status-bar .title {
+    font-family: "San Francisco", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; /* iPhone-like font */
+    font-size: 1rem; /* Same font size as the time */
+    font-weight: 400; /* Match the weight of the time */
+    text-align: center;
+    flex-grow: 1; /* Allow the title to take up available space */
+    margin: 0 10px; /* Add spacing between the time and icons */
+    color: rgba(255, 255, 255, 0.9); /* Brighter white for iPhone feel */
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.8); /* Subtle glow effect */
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden; /* Prevent overflow issues */
+}
+
+/* Adjust Time and Status Icons */
+.status-bar .time,
+.status-bar .status-icons {
+    flex-shrink: 0; /* Prevent shrinking */
+    width: auto; /* Keep their natural width */
+}
+
+/* App Grid */
+.app-grid {
+    position: absolute; /* Position the grid relative to the viewport */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for proper centering */
+    width: 80%; /* Adjust width to fit the layout */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 icons per row */
+    gap: 20px; /* Space between icons */
+    justify-content: center; /* Center icons horizontally */
+    align-items: center; /* Center icons vertically */
+    z-index: 2; /* Ensure the app grid is above the background */
+}
+
+/* Individual App */
+.app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Align items at the top of the container */
+    background: none; /* Remove any background */
+    border-radius: 20px; /* Slightly rounded corners */
+    padding: 20px; /* Adjust padding for better spacing */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* General App Icon Styles */
+.app img {
+    width: 400px;
+    height: 400px;
+    object-fit: contain;
+}
+
+/* Hover Effect for App Icons */
+.app img:hover {
+    transform: scale(1.1); /* Slightly enlarge the icon on hover */
+}
+
+/* App Name */
+.app p {
+    font-size: 1.2rem; /* Adjust text size for app names */
+    color: #000; /* Black text for app names */
+    margin: 0; /* Remove unnecessary margin */
+    text-align: center; /* Center the text below the icon */
+    line-height: 1.2; /* Adjust line height for better vertical alignment */
+}
+
+/* Footer */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    background: #111;
+    color: #fff;
+    font-size: 0.8rem;
+}
+
+/* Specific styling for the About icon */
+.about-icon {
+    width: 400px; /* Match the size of other icons */
+    height: 400px; /* Match the size of other icons */
+    object-fit: contain; /* Ensure the icon scales properly */
+    margin: 0 auto; /* Center the icon horizontally */
+    display: block; /* Ensure proper alignment */
+}
+
+/* Main Content */
+main {
+    display: block; /* Ensure normal document flow */
+    padding: 20px; /* Add padding for spacing */
+    box-sizing: border-box; /* Include padding in the element's total width/height */
+    width: 100%; /* Ensure it spans the full width */
+    max-width: 1200px; /* Optional: Limit the width for readability */
+    margin: 0 auto; /* Center the content horizontally */
+    height: auto; /* Allow the height to grow with the content */
+    overflow: visible; /* Ensure no internal scrolling */
+}
+
+section {
+    max-width: 90%; /* Limit the width of the content */
+    margin: 0 auto; /* Center the section horizontally */
+    font-size: 1rem; /* Adjust font size for readability */
+    line-height: 1.5; /* Adjust line height for better spacing */
+    overflow: visible; /* Ensure no internal scrolling */
+}
+
+/* iPhone Time Display */
+.iphone-time {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: Arial, sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000; /* Black text */
+    background-color: #fff; /* White background */
+    padding: 5px 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    z-index: 10;
+}
+
+/* Ensure JavaScript is placed in a .js or .html file, not in CSS. */
+
+ul {
+    list-style: none; /* Remove bullets */
+    margin: 0;
+    padding: 0;
+}
+
+/* Mini Navigation Styles */
+.mini-nav {
+    display: flex;
+    justify-content: space-between; /* Space out links evenly */
+    align-items: center;
+    width: 100%; /* Full width of the container */
+    max-width: 800px; /* Optional: Limit the width */
+    margin: 20px auto; /* Center the nav horizontally */
+    padding: 0 20px; /* Add some padding */
+    text-align: center;
+}
+
+.mini-nav a {
+    font-size: 1.2rem; /* Adjust text size */
+    font-weight: bold;
+    color: #000; /* Default color */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.5s ease, transform 0.3s ease; /* Smooth color and hover animation */
+    position: relative; /* Ensure the pseudo-element is positioned relative to the link */
+    overflow: hidden; /* Prevent the sparkle from overflowing the link */
+}
+
+/* Hover Animation for Links */
+.mini-nav a:hover {
+    color: #007BFF; /* Change to a blue color on hover */
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+/* Center the Middle Link */
+.mini-nav a:nth-child(2) {
+    text-align: center;
+    color: #FF5733; /* Optional: Different color for the middle link */
+    animation: color-change 3s infinite; /* Animate the color */
+}
+
+/* Keyframes for Color Animation */
+@keyframes color-change {
+    0% {
+        color: #FF5733; /* Start color */
+    }
+    50% {
+        color: #28A745; /* Midpoint color */
+    }
+    100% {
+        color: #FF5733; /* End color */
+    }
+}
+
+/* Sparkle Effect */
+.mini-nav a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%; /* Start far outside the text */
+    width: 200%; /* Make the sparkle wide enough to cover the text */
+    height: 100%;
+    background: linear-gradient(120deg, rgba(255, 251, 0, 0.8), rgba(255, 255, 255, 0) 70%);
+    transform: skewX(-20deg); /* Create a slanted sparkle */
+    animation: sparkle 2s infinite; /* Infinite sparkle animation */
+    z-index: 1; /* Ensure it appears above the text */
+}
+
+/* Keyframes for Sparkle Animation */
+@keyframes sparkle {
+    0% {
+        left: -100%; /* Start outside the text */
+    }
+    50% {
+        left: 50%; /* Move across the text */
+    }
+    100% {
+        left: 100%; /* End outside the text */
+    }
+}
+
+#falling-letters {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Prevent interaction with the animation */
+    z-index: -1; /* Ensure it stays behind other content */
+    overflow: hidden;
+    background: white; /* Clean white background */
+}
+
+.letter {
+    font-size: 3rem; /* Adjust size of the letters */
+    font-weight: bold;
+    color: #FF5733; /* Bright orange color */
+    position: absolute;
+}
+
+/* Removed invalid <script> block. Move it to an HTML file. */
+
+/* Falling Letters Container */
+#falling-letters {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Prevent interaction with the animation */
+    z-index: -1; /* Ensure it stays behind other content */
+    overflow: hidden;
+    background: white; /* Clean white background */
+}
+
+/* Individual Falling Letter */
+.falling-letter {
+    position: absolute;
+    top: -10%; /* Start above the viewport */
+    color: black; /* Black color for all text */
+    font-family: Arial, sans-serif; /* Use a clean, sans-serif font */
+    font-weight: bold;
+    font-size: 1.5rem; /* Slightly smaller font size */
+    text-transform: uppercase; /* Ensure all letters are uppercase */
+    white-space: nowrap;
+    pointer-events: none; /* Prevent interaction */
+    animation: fall linear infinite;
+}
+
+/* Falling Animation */
+@keyframes fall {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh); /* Fall to the bottom of the viewport */
+        opacity: 0; /* Fade out at the bottom */
+    }
+}
+
+/* Individual Falling Letter */
+.falling-letter {
+    position: absolute;
+    pointer-events: none; /* Prevent interaction */
+}
+
+/* Falling Full Name */
+.falling-name {
+    position: absolute;
+    pointer-events: none; /* Prevent interaction */
+}
+
+/* Animated Cordell */
+.animated-cordell {
+    position: absolute;
+    top: -10%; /* Start above the viewport */
+    color: #000; /* Black color for the full name */
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 3rem; /* Adjust size for the full name */
+    animation: bounce-cordell 3s ease-in-out infinite; /* Cool bounce animation */
+    white-space: nowrap;
+    pointer-events: none; /* Prevent interaction */
+}
+
+/* Particle Canvas */
+canvas[id$="-particle-canvas"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Place it behind the content but above the page background */
+    pointer-events: none; /* Prevent interaction */
+}
+
+/* About and Projects Containers */
+#about-container,
+#projects-container {
+    position: relative; /* Ensure proper stacking context */
+    background: transparent; /* Make the background transparent */
+    z-index: 1; /* Ensure content is above the particle canvas */
+    overflow: hidden; /* Prevent content overflow */
+}
+
+/* Fancy Scroll Reveal */
+.scroll-reveal {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-reveal.visible {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    from {
+        border-color: transparent;
+    }
+    to {
+        border-color: black;
+    }
+}
+
+/* Glowing Button Effect */
+button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+button:hover {
+    box-shadow: 0 0 10px #007BFF, 0 0 20px #007BFF, 0 0 30px #007BFF;
+}
+
+/* Bouncing Title */
+.bouncing-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #000;
+    white-space: nowrap;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow for prominence */
+    pointer-events: none; /* Prevent interaction */
+    max-width: calc(100vw - 20px); /* Prevent horizontal overflow */
+    overflow: hidden;
+}
+
+/* Keyframes for Bouncing Animation */
+@keyframes bounce {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(100vw, 0);
+    }
+    50% {
+        transform: translate(100vw, 100vh);
+    }
+    75% {
+        transform: translate(0, 100vh);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+/* About Page Grid Layout */
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 20px; /* Space between sections */
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto; /* Center the grid */
+    justify-items: center; /* Center all items horizontally */
+}
+
+/* About Section Styling */
+.about-section {
+    background: linear-gradient(145deg, #ffffff, #e6e6e6); /* Light gradient background */
+    border: none; /* Remove basic border */
+    border-radius: 15px; /* Rounded corners */
+    padding: 20px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2), -5px -5px 15px rgba(255, 255, 255, 0.5); /* 3D shadow effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+/* Hover Effect for 3D Look */
+.about-section:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3), -10px -10px 20px rgba(255, 255, 255, 0.6); /* Enhanced shadow on hover */
+}
+
+/* Center the My Goals Section */
+.my-goals {
+    grid-column: 1 / -1; /* Span across both columns */
+    text-align: center; /* Center-align the content */
+    margin-top: 20px; /* Add spacing above the section */
+    justify-self: center; /* Ensure the section itself is centered */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+    }
+}
+
+.iphone {
+  width: 90%; /* Adjust width to fit smaller screens */
+  max-width: 400px; /* Limit the maximum width */
+  height: 90vh; /* Adjust height to fit the viewport */
+  max-height: 850px; /* Limit the maximum height */
+  background: #1c1c1e;
+  background-image: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(0,0,0,0.1));
+  border-radius: 60px;
+  box-shadow:
+    inset 0 0 3px rgba(255,255,255,0.08),
+    0 15px 30px rgba(0,0,0,0.8),
+    0 0 10px rgba(0,0,0,0.5);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 10;
+  border: 10px solid #2c2c2e;
+  transform: translateX(100vw) scale(0.95);
+  animation: slideInFromRight 1s ease-out forwards;
+}
+
+@keyframes slideInPhone {
+  0% {
+    transform: scale(0.9) translateY(50px); /* Start slightly below the center */
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) translateY(0); /* Center the phone */
+    opacity: 1;
+  }
+}
+
+.note-content {
+  font-size: 0.9rem; /* Slightly smaller for the note content */
+  line-height: 1.6;
+}
+
+.note-content {
+  background-color: #fffde7;
+  padding: 20px 20px 40px;
+  overflow-y: auto;
+  flex-grow: 1;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  scrollbar-width: thin; /* Show a thin scrollbar */
+  scrollbar-color: #ccc transparent; /* Style the scrollbar */
+}
+
+.note-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.note-content::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 3px;
+}
+
+.nav-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: url('path/to/icon.png') no-repeat center center;
+    background-size: contain;
+}
